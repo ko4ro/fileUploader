@@ -8,7 +8,7 @@ const LOAD_FILES_PAGE_SIZE = 10
 
 
 // ファイル一覧表示をJS側で行う処理
-document.addEventaListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
     let app = new Vue({
         delimiters: ["[[", "]]"],
         el: '#app',
