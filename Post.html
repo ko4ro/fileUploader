@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8">
+		<title>HTML POST</title>
+		<link rel="stylesheet" href="./CSS/style.css">
+	</head>
+	<body>
+		<h1 id="Post_text">Please fill in form! {{test}}
+		</h1>
+		<h1>記入してください！</h1>
+		<form name="post" method="POST" action="/post">
+			<input type="username" name="username" placeholder="usernameを入力" required /><br/>
+			<!-- <input type="submit" value="POST" /> -->
+			<button type="submit">POST</button>
+		</form>
+	</body>
+</html>
