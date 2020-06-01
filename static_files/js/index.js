@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
             },
             loadFilesMore: function () {
-                console.log("Hello");
                 let start = this.filenames == null ? 0 : this.filenames.length
                 this.loadfile(start, LOAD_FILES_PAGE_SIZE)
 

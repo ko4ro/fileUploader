@@ -5,6 +5,9 @@ body {
 h1 {
   color: hsl(241, 67%, 47%);
 }
+h2 {
+  color: hsl(241, 67%, 47%);
+}
 div{
   background: #ffffff;
   width: 500px;

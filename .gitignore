@@ -2,3 +2,6 @@
 .DS_store
 env
 uploaded_files
+.gitignore
+.git
+.python-version 
