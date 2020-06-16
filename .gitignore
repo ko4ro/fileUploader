@@ -2,6 +2,12 @@
 .DS_store
 env
 uploaded_files
-.gitignore
 .git
 .python-version 
+node_modules
+package-lock.json
+static_files/css/bootstrap.min.css
+static_files/js/bootstrap.min.js
+static_files/js/jquery-3.5.1.min.js
+static_files/js/popper.min.js
+static_files/js/vue.js

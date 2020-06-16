@@ -1,73 +1,111 @@
+
 body {
-  background-color: hsl(201, 29%, 91%);
+  margin:auto;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
 }
 
 h1 {
-  color: hsl(241, 67%, 47%);
+color: hsl(241, 67%, 47%);
 }
-h2 {
-  color: hsl(241, 67%, 47%);
-}
+
 div{
-  background: #ffffff;
-  width: 500px;
-  padding: 40px;
-  text-align: center;
-  border: 1px solid #cccccc;
-}
-.container {
-  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
-  text-align: center;
-  padding-top: 20px;
+background:hsl(180, 50%, 100%);
+width: auto;
+padding: auto;
+text-align: center;
 }
 
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgba(0,0,0,.075);
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
 
+.inline-block {
+  display: inline;        /* インラインブロック要素にする */
+  background-color:  #fff;      /* 背景色指定 */
+}
+
+.container { margin:auto; 
+font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;text-align: center;padding-top: 20px;}
+
+div.scroll {
+  height: 120px;
+  overflow: scroll;
+}
 /* ここから下がボタンのCSS　*/
-.btn-push {
-  display: inline-block;
-  max-width: 180px;
-  text-align: left;
-  background-color: #ffa300;
-  font-size: 16px;
-  color: #FFF;
-  text-decoration: none;
+
+.deleteButton{
+  font-size: 100%;/*ボタンの大きさ*/
   font-weight: bold;
-  padding: 10px 24px;
-  border-radius: 4px;
-  border-bottom: 4px solid #d37800;
+  border: 1px solid #999;
+  color: #999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  line-height: 1.3em;
+  cursor: pointer;
+  transition: .2s;
+  position: relative;
+  display: inline;
+}
+  
+.deleteButton:hover{
+  background: #333;
+  border-color: #333;
+  color: #FFF;
+}
+
+
+
+.btn-push {
+display: inline-block;
+max-width: 180px;
+text-align: left;
+background-color: #ffa300;
+font-size: 16px;
+color: #FFF;
+text-decoration: none;
+font-weight: bold;
+padding: 10px 24px;
+border-radius: 4px;
+border-bottom: 4px solid #d37800;
 }
 .btn-push:active {
-    transform: translateY(4px);
-    border-bottom: none;
+  transform: translateY(4px);
+  border-bottom: none;
 }
 
 .btn-gradation {
-  display: inline-block;
-  text-align: left;
-  background-image: linear-gradient(#eaeaea 0%, #c6c6c6 100%);
-  box-shadow: inset 0 2px 0 rgba(255,255,255,0.5), 0 2px 2px rgba(0, 0, 0, 0.19);
-  color: #a5a5a5;
-  font-size: 16px;
-  text-decoration: none;
-  font-weight: bold;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
-  padding: 12px 24px;
-  border-radius: 4px;
-  font-size: 16px;
+display: inline-block;
+text-align: left;
+background-image: linear-gradient(#eaeaea 0%, #c6c6c6 100%);
+box-shadow: inset 0 2px 0 rgba(0,0,0,.075), 0 2px 2px rgba(0, 0, 0, 0.19);
+color: #a5a5a5;
+font-size: 16px;
+text-decoration: none;
+font-weight: bold;
+text-shadow: 1px 1px 1px rgba(255, 255, 255, 1);
+padding: 12px 24px;
+border-radius: 4px;
+font-size: 16px;
 }
 
 .btn-gradation:hover {
-  opacity: 0.8;
+opacity: 0.8;
 }
 
-label {
-  background: #000;
-  color: #fff;
-  cursor: pointer;
-  padding: 15px 30px;
-  margin: 0 10px 0 0;
-  display: inline-block;
-}
-label input {
-  display: none;
-}

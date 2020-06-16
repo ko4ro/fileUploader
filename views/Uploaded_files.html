@@ -9,7 +9,8 @@
 	<body>
 		<h1>UPLOADED FILES</h1>
         %for file in uploaded_files:
-        <p><a href="/static/{{file}}">{{file}}</a>
+		<p><a href="/static/{{file}}">{{file}}</a>
+			<e-icon class="preview-item-icon">close</e-icon>
         </p>
  		%end
 	</body>
