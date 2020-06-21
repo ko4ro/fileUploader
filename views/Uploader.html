@@ -5,40 +5,40 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>HTML UPLOADER</title>
 	<!-- jQuery読み込み -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
-	<!-- <script src="/static_files/js/jquery-3.5.1.min.js"crossorigin="anonymous"></script> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script> -->
+	<script src="/static_files/js/jquery-3.5.1.min.js"crossorigin="anonymous"></script>
 
 	<!-- BootstrapのCSS読み込み -->
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<!-- <link rel="stylesheet" href="/static_files/css/bootstrap.min.css"> -->
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+	<link rel="stylesheet" href="/static_files/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static_files/css/style.css">
 
 	<!-- BootstrapのJS読み込み -->
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
-	<!-- <script src="/static_files/js/bootstrap.min.js"crossorigin="anonymous"></script> -->
+	<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script> -->
+	<script src="/static_files/js/bootstrap.min.js"crossorigin="anonymous"></script>
 
 	<!-- Poper読み込み -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script>
-	<!-- <script src="/static_files/js/popper.min.js"crossorigin="anonymous"></script> -->
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"crossorigin="anonymous"></script> -->
+	<script src="/static_files/js/popper.min.js"crossorigin="anonymous"></script>
 
 	<!-- VueJS読み込み -->
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-	<!-- <script src="/static_files/js/vue.js"></script> -->
+	<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+	<script src="/static_files/js/vue.js"></script>
 
 	<!-- Reactのコアライブラリ -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script> -->
 	<!-- ReactDOMライブラリ -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script> -->
 
 	<!-- axios読み込み -->
 	<!-- <script type="module" src="https://unpkg.com/axios/dist/axios.min.js" ></script> -->
 
 	<!-- material icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
 
 	<script src="/static_files/js/index.js"></script>
 	<!-- <script src="/static_files/css/style.css"></script> -->
-
 </head>
 
 <body>
@@ -50,19 +50,22 @@
 						<form method="POST" action="/upload" enctype="multipart/form-data" name="uploadFile">
 							<div class="center-block">
 								<h1><strong>ファイルを選択</strong></h1> </br>
+								<div class="imagePreview"></div>
 								<div class="input-group">
 									<label class="input-group-btn">
 										<span class="btn btn-primary">
-											参照<input type="file" name="data" style="display:none">
+											Choose File<input type="file" name="data" style="display:none">
 										</span>
 									</label>
 									<input type="text" class="form-control" readonly="" name="uploadFileName"> 
 								</br>
+								<img id="img" />
 								</div>
 								<button type="submit" class="btn btn-primary btn-lg btn-block">アップロード</button> </br>
 								<!-- <p class="text-center "><a href="/uploaded_files">アップロード一覧</a></p> -->
 							</div>
 						</form>
+
 					</div>
 				</div></br>
 				<div class="card">
@@ -72,6 +75,7 @@
 							<div>
 								<p v-for="(value, index) in filenames ">
 									<a v-bind:href="'/static_img/' + value">[[ value ]]</a>
+
 									<span v-on:click="deleteItem(index)" class="deleteButton">×</span>
 								</p>
 							</div>

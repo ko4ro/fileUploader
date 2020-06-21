@@ -4,10 +4,19 @@ $(document).on('change', ':file', function () {
         numFiles = input.get(0).files ? input.get(0).files.length : 1,
         label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
     input.parent().parent().next(':text').val(label);
+
+    var files = !!this.files ? this.files : [];
+    if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+    if (/^image/.test( files[0].type)){ // only image file
+        var reader = new FileReader(); // instance of the FileReader
+        reader.readAsDataURL(files[0]); // read the local file
+        reader.onloadend = function(){ // set image data as background of div
+            input.parent().parent().parent().prev('.imagePreview').css("background-image", "url("+this.result+")");
+        }
+    }
 });
 
 const LOAD_FILES_PAGE_SIZE = 10
-
 
 // 以下　Vue.js
 // ファイル一覧表示をJS側で行う処理
@@ -23,13 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 self = this;
                 let point = `http://localhost:8000/api/uploaded_files?start=${start}&size=${size}`
                 fetch(point).then(function (response) {
-
                     return response.json();
                 })
                     .then(function (myJson) {
                         self.filenames = self.filenames.concat(myJson.files);
-                        // console.log(self.filenames);
-                        // console.log(myJson);
+                        console.log(myJson);
+                        console.log(self.filenames);
+
 
                     });
             },
@@ -39,10 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
             },
             deleteItem: function(index){
                 self = this;
-                let target = `http://localhost:8000/api/delete?target=${self.filenames[index]}`
+                let  = `http://localhost:8000/api/delete?target=${self.filenames[index]}`
                 fetch(target).then(function (response) {})
                 if(confirm('Are you sure Delite?')){ //確認をとる
-                // console.log(self.filenames[index]);
                 self.filenames.splice(index, 1);
             }}
         }

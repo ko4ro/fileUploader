@@ -46,6 +46,19 @@ div.scroll {
   height: 120px;
   overflow: scroll;
 }
+
+.imagePreview {
+  background-color: #ccc;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 5px;
+  width: 75%;
+  height: 200px;
+  border: 1px solid #ccc;
+  background-size: contain;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+  display: inline-block;
+}
 /* ここから下がボタンのCSS　*/
 
 .deleteButton{
