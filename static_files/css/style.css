@@ -1,16 +1,31 @@
 
 body {
-  margin:auto;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin:0;
+}
+div.header {
+  position: relative;
+  height: 80px;
+  padding: 10px 20px;
+  background-color: #333;
 }
 
-h1 {
-color: hsl(241, 67%, 47%);
+p.header-text {
+  font-size: 24px;
+  color: #fff;
+  top: 50%;
+  left: 50%;
+}
+container{
+  width: 1200;
+  display: flex;
+  flex: 1;
+  margin: 0;
+}
+nav{
+  width: 150px;
 }
 
 div{
@@ -33,18 +48,70 @@ text-align: center;
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
 }
-
+.cp_ipselect {
+	overflow: hidden;
+	width: 90%;
+	margin: 2em auto;
+	text-align: center;
+}
+.cp_ipselect select {
+	width: 100%;
+	padding-right: 1em;
+	cursor: pointer;
+	text-indent: 0.01px;
+	text-overflow: ellipsis;
+	border: none;
+	outline: none;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	-webkit-appearance: none;
+	appearance: none;
+}
+.cp_ipselect select::-ms-expand {
+    display: none;
+}
+.cp_ipselect.cp_sl01 {
+	position: relative;
+	border: 1px solid #bbbbbb;
+	border-radius: 2px;
+	background: #ffffff;
+}
+.cp_ipselect.cp_sl01::before {
+	position: absolute;
+	top: 0.8em;
+	right: 0.9em;
+	width: 0;
+	height: 0;
+	padding: 0;
+	content: '';
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid #666666;
+	pointer-events: none;
+}
+.cp_ipselect.cp_sl01 select {
+	padding: 8px 38px 8px 8px;
+	color: #666666;
+}
 .inline-block {
   display: inline;        /* インラインブロック要素にする */
   background-color:  #fff;      /* 背景色指定 */
 }
 
-.container { margin:auto; 
-font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;text-align: center;padding-top: 20px;}
+main { 
+  min-width: 1200;
+  flex: 1;
+  margin:0; 
+  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;text-align: center;padding-top: 20px;}
 
 div.scroll {
   height: 120px;
   overflow: scroll;
+}
+
+aside{
+  width: 200px;
 }
 /* ここから下がボタンのCSS　*/
 
