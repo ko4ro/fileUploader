@@ -57,35 +57,37 @@
 								<form method="POST" action="/upload" enctype="multipart/form-data" name="uploadFile">
 									<div class="center-block">
 										<div class="cp_ipselect cp_sl01">
-											<select required>
-												<option value="" hidden>Choose</option>
-												<option value="1">Local Image</option>
-												<option value="2">MNIST</option>
+											<select name="category" v-model="selectedCategory" >
+												<option disabled value="">Please select your data</option>
+												<option>Local Image</option>
+												<option>MNIST</option>
 											</select>
-											</div>
-										<div class="input-group">
+										</div>
+										<div v-if=" selectedCategory == 'Local Image' " class="input-group">
 											<label class="input-group-btn">
 												<span class="btn btn-primary">
-													Chose File<input type="file" v-on:change="validate_uploads" style="display:none">
+													Chose File<input type="file" v-on:change="validateUploads" style="display:none">
 												</span>
 											</label>
 											<input type="text" class="form-control" readonly="">
 											<div id="preview"></div>  
 										</br>
-										</div></br>
-										<button type="submit" class="btn btn-primary btn-lg btn-block">アップロード</button> </br>
-										<!-- <p class="text-center "><a href="/uploaded_files">アップロード一覧</a></p> -->
+										<button type="submit" class="btn btn-primary btn-lg btn-block">Upload</button> </br>
+										</div>
+										<div v-else>
+										<button href="/api/graph" class="btn btn-primary btn-lg btn-block" v-on:click="fetchMNIST">Upload</button> </br>
+										</div>
 									</div>
 								</form>
 							</div>
 						</div></br>
 						<div class="card">
-							<h2>アップロード一覧</h2>
+							<h2>Uploaded Files</h2>
 							<div class="card-body">
 								<div class="scroll">
 									<div>
 										<p v-for="(value, index) in filenames ">
-											<a v-bind:href="'/static_img/' + value">[[ value ]]</a>
+											<a v-on:click="toggleUploadDialog"　v-bind:href="'/static_img/' + value">[[ value ]]</a>
 											<span v-on:click="deleteItem(index)" class="deleteButton">×</span>
 										</p>
 									</div>

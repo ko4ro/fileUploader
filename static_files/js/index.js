@@ -8,7 +8,6 @@ $(document).on('change', ':file', function () {
 
 const LOAD_FILES_PAGE_SIZE = 10
 
-
 // 以下　Vue.js
 // ファイル一覧表示をJS側で行う処理
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,10 +15,15 @@ document.addEventListener("DOMContentLoaded", () => {
         delimiters: ["[[", "]]"],
         el: '#app', 
         data: {
+            selectedCategory: '',
+            categories: [
+                {id: 1, name: 'Local Image'},
+                {id: 2, name: 'MNIST'},
+            ],
             filenames: [],
         },
         methods: {
-            validate_uploads:　function (event) {
+            validateUploads:　function (event) {
                 var file = event.target.files[0];
                 name = file.name,
                 size = file.size,
@@ -29,10 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(file)
 
                 //上限サイズは3MB
-                if (size > 3000000) {
-                  errors += 'ファイルの上限サイズ3MBを超えています\n'
-                }
-             
+                // if (size > 3000000) {
+                //   errors += 'ファイルの上限サイズ3MBを超えています\n'
+                // }
                 //拡張子は .jpg .gif .png . pdf のみ許可
                 if (type != 'image/jpeg' && type != 'image/png' && type != 'application/zip') {
                   errors += '.jpg、、.png、.zipのいずれかのファイルのみ許可されています\n'
@@ -58,7 +61,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 preview.appendChild(img);
             };
             reader.readAsDataURL(file);
-        },
+            },
+            fetchMnist: function() {
+                var tag = '';
+                if (this.selectedCategory == 1) {
+                    tag = 'Local Image'
+                } else if (this.selectedCategory == 2) {
+                    tag = 'M'
+                } else {
+                  alert('Invalid value!!')
+                }
+                this.tags = tag;
+            },
+            toggleUploadDialog() {
+                const upload_dialog = document.querySelector("#upload-dialog")
+                this.upload_dialog = !this.upload_dialog
+                if (this.upload_dialog) {
+                    upload_dialog.showModal()
+                } else {
+                    upload_dialog.close()
+                }
+            },
             loadfile: function (start = 0, size = 10) {
                 self = this;
                 let point = `http://localhost:8000/api/uploaded_files?start=${start}&size=${size}`
