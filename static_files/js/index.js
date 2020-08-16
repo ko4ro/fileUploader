@@ -14,13 +14,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let app = new Vue({
         delimiters: ["[[", "]]"],
         el: '#app', 
-        data: {
-            selectedCategory: '',
-            categories: [
-                {id: 1, name: 'Local Image'},
-                {id: 2, name: 'MNIST'},
-            ],
-            filenames: [],
+        data() {
+            return {
+                selectedCategory: '',
+                categories: [
+                    {id: 1, name: 'Local Image'},
+                    {id: 2, name: 'MNIST'},
+                ],
+                filenames: [],
+                image_dialog: false, 
+            }
         },
         methods: {
             validateUploads:　function (event) {
@@ -73,13 +76,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 this.tags = tag;
             },
-            toggleUploadDialog() {
-                const upload_dialog = document.querySelector("#upload-dialog")
-                this.upload_dialog = !this.upload_dialog
-                if (this.upload_dialog) {
-                    upload_dialog.showModal()
+            toggleImageDialog() {
+                const image_dialog = document.querySelector("#image-dialog")
+                this.image_dialog = !this.image_dialog
+                if (this.image_dialog) {
+                    image_dialog.showModal()
                 } else {
-                    upload_dialog.close()
+                    image_dialog.close()
                 }
             },
             loadfile: function (start = 0, size = 10) {
@@ -101,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 let target = `http://localhost:8000/api/delete?target=${self.filenames[index]}`
                 fetch(target).then(function (response) {})
                 if(confirm('Are you sure Delite?')){ //確認をとる
-                // console.log(self.filenames[index]);
                 self.filenames.splice(index, 1);
             }}
         }

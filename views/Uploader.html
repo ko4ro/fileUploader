@@ -39,6 +39,9 @@
 	<script src="/static_files/js/index.js"></script>
 	<!-- <script src="/static_files/css/style.css"></script> -->
 
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -75,7 +78,7 @@
 										<button type="submit" class="btn btn-primary btn-lg btn-block">Upload</button> </br>
 										</div>
 										<div v-else>
-										<button href="/api/graph" class="btn btn-primary btn-lg btn-block" v-on:click="fetchMNIST">Upload</button> </br>
+										<button href="/api/graph" class="btn btn-primary btn-lg btn-block" >Upload</button> </br>
 										</div>
 									</div>
 								</form>
@@ -87,9 +90,22 @@
 								<div class="scroll">
 									<div>
 										<p v-for="(value, index) in filenames ">
-											<a v-on:click="toggleUploadDialog"　v-bind:href="'/static_img/' + value">[[ value ]]</a>
-											<span v-on:click="deleteItem(index)" class="deleteButton">×</span>
+											<label>
+												<span v-on:click="toggleImageDialog" class="uploadedImages">[[ value ]]</span>
+												<span v-on:click="deleteItem(index)" class="deleteButton">×</span>
+												<!-- <input type="checkbox" name="checkbox">
+												<div id="popup"><img v-bind:src="'/static_img/' + value" alt="value" /></div> -->
+											</label>
 										</p>
+										<dialog id="image-dialog" class="dialog" v-for="(value, index) in filenames ">
+											<div class="dialog-header">Image</div>
+											<div class="dialog-body">
+											<img v-bind:src="'/static_img/' + value">
+											</div>
+											<div class="dialog-footer">
+											<button v-on:click="toggleImageDialog" class="wide green" >cancel</button>
+											</div>
+										</dialog>
 									</div>
 								</div>
 							</div>
@@ -99,10 +115,10 @@
 				</div>
 			</div>
 		</main>
+		
 		<!-- <aside></aside>	 -->
 	</div>
 
-	
 	<footer></footer>
 	
 

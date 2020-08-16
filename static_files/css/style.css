@@ -137,8 +137,6 @@ aside{
   color: #FFF;
 }
 
-
-
 .btn-push {
 display: inline-block;
 max-width: 180px;
@@ -176,3 +174,106 @@ font-size: 16px;
 opacity: 0.8;
 }
 
+img{
+  width:100%;
+}
+
+/* dialog */
+
+dialog {
+  position: relative;
+  width: 500px;
+  padding: 50px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 0;
+  padding: 0;
+  top: 20vh;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  animation: modal-open .4s ease;
+}
+
+dialog[open] {
+  animation: modal-slide .5s ease;
+}
+.dialog-header{
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  font-size: 24px;
+}
+
+.dialog-contents{
+  padding: 20px;
+  color: #333;
+  font-weight: bold;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+.dialog-footer{
+  padding: 10px;
+  color: #333;
+  font-weight: bold;
+}
+
+@keyframes modal-slide {
+  0% {
+    transform: translateY(-20px);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+button {
+  display: inline-block;
+  padding: 8px 16px;
+  text-align: center;
+  background-color: #333;
+  font-size: 16px;
+  color: #fff;
+  border: 2px solid #333;
+  transition: .4s;
+}
+
+button:hover {
+    color: skyblue;
+}
+
+button:focus {
+    outline: none;
+}
+
+button.green {
+    background-color: #1b7a3c;
+    border-color: #1b7a3c;
+}
+
+button.green:hover {
+    color: yellowgreen;
+}
+
+button.wide {
+    width: 100%;
+}
+
+button.small {
+    padding: 2px;
+    font-size: 10px;
+    border-width: 1px;
+    border-radius: 5px;
+}
+
+.uploadedImages{
+  color:ff0000;
+}
+  
+.uploadedImages:hover{
+  color: rgb(42, 122, 212);
+}
